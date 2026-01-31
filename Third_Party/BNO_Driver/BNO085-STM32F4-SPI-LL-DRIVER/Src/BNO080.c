@@ -233,7 +233,7 @@ int BNO080_dataAvailable(void)
 	//If we have an interrupt pin connection available, check if data is available.
 	//If int pin is NULL, then we'll rely on BNO080_receivePacket() to timeout
 	//See issue 13: https://github.com/sparkfun/SparkFun_BNO080_Arduino_Library/issues/13
-	if (LL_GPIO_IsInputPinSet(BNO080_INT_PORT, BNO080_INT_PIN) == 1)
+	if (BNO_INT_ASSERTED() == 1)
 		return (0);
 
 	if (BNO080_receivePacket() == 1)
@@ -999,7 +999,7 @@ int BNO080_waitForSPI(void)
 {
 	for (uint32_t counter = 0; counter < 0xffffffff; counter++) //Don't got more than 255
 	{
-		if (LL_GPIO_IsInputPinSet(BNO080_INT_PORT, BNO080_INT_PIN) == 0)
+		if (BNO_INT_ASSERTED() == 0)
 		{
 			//printf("\nData available\n");
 			return (1);
@@ -1017,7 +1017,7 @@ int BNO080_receivePacket(void)
 {
 	uint8_t incoming;
 
-	if (LL_GPIO_IsInputPinSet(BNO080_INT_PORT, BNO080_INT_PIN) == 1)
+	if (BNO_INT_ASSERTED() == 1)
 		return (0); //Data is not available
 
 	//Old way: if (BNO080_waitForSPI() == 0) return (0); //Something went wrong
