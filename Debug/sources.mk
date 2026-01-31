@@ -25,4 +25,5 @@ SUBDIRS := \
 Core/Src \
 Core/Startup \
 Drivers/STM32F4xx_HAL_Driver/Src \
+Third_Party/BNO_Driver/BNO085-STM32F4-SPI-LL-DRIVER/Src \
 

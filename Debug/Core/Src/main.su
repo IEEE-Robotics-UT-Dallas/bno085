@@ -1,6 +1,5 @@
-/home/nokoru/STM32CubeIDE/workspace_1.19.0/bno085/bno_sensor_print/Middlewares/Third_Party/BNO_Drivers/BNO085-STM32F4-SPI-LL-DRIVER/Inc/BNO080.h:185:15:SPI2_SendByte	32	static
-../Core/Src/main.c:66:6:HAL_GPIO_EXTI_Callback	16	static
-../Core/Src/main.c:74:13:BNO_ResetPulse	8	static
-../Core/Src/main.c:93:5:main	72	static
+../Core/Src/main.c:65:6:HAL_GPIO_EXTI_Callback	16	static
+../Core/Src/main.c:73:13:BNO_ResetPulse	8	static
+../Core/Src/main.c:92:5:main	64	static
 ../Core/Src/main.c:167:6:SystemClock_Config	88	static
 ../Core/Src/main.c:212:6:Error_Handler	4	static,ignoring_inline_asm

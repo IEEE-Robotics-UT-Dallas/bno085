@@ -130,29 +130,30 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  printf("BNO init...\r\n");
+	  printf("boot\r\n");
 
-	  RESET_LOW();
-	  HAL_Delay(10);
-	  RESET_HIGH();
-	  HAL_Delay(50);
+	  int ret = BNO080_Initialization();
+	  printf("BNO080_Initialization ret=%d\r\n", ret);
 
-	  if (BNO080_Initialization() == 0) {
-	      printf("BNO init failed\r\n");
+	  // NOTE: in your driver, success returns 0 (it prints "...ok" then returns 0)
+	  if (ret == 0) {
+	      // 50,000 us = 50 ms = 20 Hz. Fits in uint16_t.
+	      BNO080_enableRotationVector(50000);
+	      printf("RotationVector enabled\r\n");
 	  } else {
-	      printf("BNO init ok\r\n");
-	      BNO080_enableRotationVector(50); // 50ms => 20 Hz (in this library style)
+	      printf("BNO init FAILED\r\n");
 	  }
 
 	  while (1) {
 	      if (BNO080_dataAvailable()) {
-	          float qw = BNO080_getQuatReal();
-	          float qx = BNO080_getQuatI();
-	          float qy = BNO080_getQuatJ();
-	          float qz = BNO080_getQuatK();
-	          printf("q: %.4f %.4f %.4f %.4f\r\n", qw, qx, qy, qz);
+	          printf("q: %.4f %.4f %.4f %.4f\r\n",
+	                 BNO080_getQuatReal(),
+	                 BNO080_getQuatI(),
+	                 BNO080_getQuatJ(),
+	                 BNO080_getQuatK());
 	      }
 	  }
+
 
 
   }

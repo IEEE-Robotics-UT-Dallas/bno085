@@ -1,0 +1,25 @@
+# Build outputs
+Debug/
+Release/
+*.o
+*.a
+*.d
+*.su
+*.cyclo
+*.map
+*.list
+*.elf
+*.bin
+*.hex
+
+# STM32CubeIDE / Eclipse metadata
+.settings/
+.project
+.cproject
+
+# CubeIDE-generated workspace metadata (not project)
+.metadata/
+
+# OS junk
+.DS_Store
+*~

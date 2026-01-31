@@ -27,8 +27,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "bno080.h"
-#include "quaternion.h"
+#include "BNO080.h"
+#include "Quaternion.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/

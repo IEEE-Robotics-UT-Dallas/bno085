@@ -27,3 +27,5 @@
 "./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.o"
 "./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.o"
 "./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.o"
+"./Third_Party/BNO_Driver/BNO085-STM32F4-SPI-LL-DRIVER/Src/BNO080.o"
+"./Third_Party/BNO_Driver/BNO085-STM32F4-SPI-LL-DRIVER/Src/Quaternion.o"

@@ -28,10 +28,10 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
- ../Core/Inc/dma.h ../Core/Inc/main.h ../Core/Inc/gpio.h \
- ../Core/Inc/i2c.h ../Core/Inc/spi.h ../Core/Inc/usart.h \
- /home/nokoru/STM32CubeIDE/workspace_1.19.0/bno085/bno_sensor_print/Middlewares/Third_Party/BNO_Drivers/BNO085-STM32F4-SPI-LL-DRIVER/Inc/Quaternion.h \
- /home/nokoru/STM32CubeIDE/workspace_1.19.0/bno085/bno_sensor_print/Middlewares/Third_Party/BNO_Drivers/BNO085-STM32F4-SPI-LL-DRIVER/Inc/BNO080.h
+ ../Core/Inc/dma.h ../Core/Inc/main.h ../Core/Inc/i2c.h ../Core/Inc/spi.h \
+ ../Core/Inc/usart.h ../Core/Inc/gpio.h \
+ /home/nokoru/STM32CubeIDE/workspace_1.19.0/bno085/bno_sensor_print/Third_Party/BNO_Driver/BNO085-STM32F4-SPI-LL-DRIVER/Inc/BNO080.h \
+ /home/nokoru/STM32CubeIDE/workspace_1.19.0/bno085/bno_sensor_print/Third_Party/BNO_Driver/BNO085-STM32F4-SPI-LL-DRIVER/Inc/Quaternion.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
@@ -64,9 +64,9 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 ../Core/Inc/dma.h:
 ../Core/Inc/main.h:
-../Core/Inc/gpio.h:
 ../Core/Inc/i2c.h:
 ../Core/Inc/spi.h:
 ../Core/Inc/usart.h:
-/home/nokoru/STM32CubeIDE/workspace_1.19.0/bno085/bno_sensor_print/Middlewares/Third_Party/BNO_Drivers/BNO085-STM32F4-SPI-LL-DRIVER/Inc/Quaternion.h:
-/home/nokoru/STM32CubeIDE/workspace_1.19.0/bno085/bno_sensor_print/Middlewares/Third_Party/BNO_Drivers/BNO085-STM32F4-SPI-LL-DRIVER/Inc/BNO080.h:
+../Core/Inc/gpio.h:
+/home/nokoru/STM32CubeIDE/workspace_1.19.0/bno085/bno_sensor_print/Third_Party/BNO_Driver/BNO085-STM32F4-SPI-LL-DRIVER/Inc/BNO080.h:
+/home/nokoru/STM32CubeIDE/workspace_1.19.0/bno085/bno_sensor_print/Third_Party/BNO_Driver/BNO085-STM32F4-SPI-LL-DRIVER/Inc/Quaternion.h:
