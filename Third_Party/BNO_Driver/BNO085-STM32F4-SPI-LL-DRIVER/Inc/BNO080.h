@@ -47,11 +47,13 @@
 #define	_BNO080_H
 
 #include "main.h"
+#include "spi.h"
+#include "stdint.h"
 //////////////////////////////////////////////////////////////////////////
 
 /**
  * @brief Definition for connected to SPI2 (APB1 PCLK = 42MHz)
- */
+ *
 #define BNO080_SPI_CHANNEL		SPI2
 
 #define BNO080_SPI_SCLK_PIN		LL_GPIO_PIN_13
@@ -94,6 +96,20 @@
 #define RESET_LOW()				LL_GPIO_ResetOutputPin(BNO080_RST_PORT, BNO080_RST_PIN)
 //////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////
+*/
+
+extern SPI_HandleTypeDef hspi1;
+
+// PA4 CS
+#define CHIP_SELECT(BNO080)    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET)
+#define CHIP_DESELECT(BNO080)  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET)
+
+// PB1 RST
+#define RESET_LOW()            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_RESET)
+#define RESET_HIGH()           HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_SET)
+
+// INT PB0 (active low)
+#define BNO_INT_ASSERTED()     (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_0) == GPIO_PIN_RESET)
 
 //Registers
 enum Registers
@@ -163,7 +179,14 @@ enum Registers
 
 void BNO080_GPIO_SPI_Initialization(void);
 int BNO080_Initialization(void);
-unsigned char SPI2_SendByte(unsigned char data);
+unsigned char SPI2_SendByte(unsigned char data)
+{
+  uint8_t rx = 0;
+  uint8_t tx = (uint8_t)data;
+  HAL_SPI_TransmitReceive(&hspi1, &tx, &rx, 1, HAL_MAX_DELAY);
+  return rx;
+}
+
 
 int BNO080_dataAvailable(void);
 void BNO080_parseCommandReport(void);
