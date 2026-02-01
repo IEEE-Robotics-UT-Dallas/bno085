@@ -155,9 +155,9 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
+						<entry excluding="BNO080_main.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="Third_Party/BNO_Driver/BNO085-STM32F4-SPI-LL-DRIVER/Src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Core"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Drivers"/>
-						<entry excluding="BNO080_main.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="Third_Party/BNO_Driver/BNO085-STM32F4-SPI-LL-DRIVER/Src"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -232,9 +232,9 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
+						<entry excluding="BNO080_main.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Third_Party/BNO_Driver/BNO085-STM32F4-SPI-LL-DRIVER/Src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Core"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Drivers"/>
-						<entry excluding="BNO080_main.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Third_Party/BNO_Driver/BNO085-STM32F4-SPI-LL-DRIVER/Src"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>

@@ -82,8 +82,8 @@ void BNO080_GPIO_SPI_Initialization(void)
     // CubeMX already initialized SPI1 + GPIOs.
     // We only ensure safe idle states here.
     CHIP_DESELECT(BNO080);  // CS high
-    WAKE_HIGH();            // no-op (PS0/PS1 strapped)
     RESET_HIGH();           // release reset
+    WAKE_HIGH();            // no-op (PS0/PS1 strapped)
 }
 
 
@@ -115,6 +115,12 @@ int BNO080_Initialization(void)
 	BNO080_waitForSPI();  //Wait for assertion of INT before reading Init response
 	BNO080_receivePacket();
 	
+	printf("RX ch=%u len=%u id=0x%02X INT=%d\r\n",
+	       shtpHeader[2],
+	       (unsigned)(shtpHeader[0] | (shtpHeader[1] << 8)),
+	       shtpData[0],
+	       (int)HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_0));
+
 	//Check communication with device
 	shtpData[0] = SHTP_REPORT_PRODUCT_ID_REQUEST; //Request the product ID and reset info
 	shtpData[1] = 0;						 //Reserved

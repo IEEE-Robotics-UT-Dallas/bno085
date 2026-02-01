@@ -49,12 +49,14 @@
 #include "main.h"
 #include "spi.h"
 #include "stdint.h"
+
+
 //////////////////////////////////////////////////////////////////////////
 
-/**
+/*
  * @brief Definition for connected to SPI2 (APB1 PCLK = 42MHz)
- *
-#define BNO080_SPI_CHANNEL		SPI2
+
+#define BNO080_SPI_CHANNEL		SPI1
 
 #define BNO080_SPI_SCLK_PIN		LL_GPIO_PIN_13
 #define BNO080_SPI_SCLK_PORT	GPIOB
@@ -109,8 +111,13 @@ extern SPI_HandleTypeDef hspi1;
 #define RESET_HIGH()           HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_SET)
 
 // INT PB0 (active low)
-#define BNO_INT_ASSERTED()     (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_0) == GPIO_PIN_RESET)
+#define BNO_INT_ASSERTED() (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_0))
 
+
+
+// PS0/PS1 are strapped to 3V3 externally on your module, so WAKE can be no-op
+#define WAKE_HIGH()             ((void)0)
+#define WAKE_LOW()              ((void)0)
 //Registers
 enum Registers
 {
@@ -179,13 +186,7 @@ enum Registers
 
 void BNO080_GPIO_SPI_Initialization(void);
 int BNO080_Initialization(void);
-unsigned char SPI2_SendByte(unsigned char data)
-{
-  uint8_t rx = 0;
-  uint8_t tx = (uint8_t)data;
-  HAL_SPI_TransmitReceive(&hspi1, &tx, &rx, 1, HAL_MAX_DELAY);
-  return rx;
-}
+unsigned char SPI2_SendByte(unsigned char data);
 
 
 int BNO080_dataAvailable(void);

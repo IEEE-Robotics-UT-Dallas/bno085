@@ -144,16 +144,30 @@ int main(void)
 	      printf("BNO init FAILED\r\n");
 	  }
 
-	  while (1) {
-	      if (BNO080_dataAvailable()) {
-	          printf("q: %.4f %.4f %.4f %.4f\r\n",
-	                 BNO080_getQuatReal(),
-	                 BNO080_getQuatI(),
-	                 BNO080_getQuatJ(),
-	                 BNO080_getQuatK());
-	      }
-	  }
+	  static uint32_t last_ms = 0;
+	  while(1){
+		  if (BNO080_dataAvailable())
+		  {
+		    uint32_t now = HAL_GetTick();
+		    if (now - last_ms >= 50) {
+		      last_ms = now;
 
+		      float q[4] = {
+		        BNO080_getQuatI(),
+		        BNO080_getQuatJ(),
+		        BNO080_getQuatK(),
+		        BNO080_getQuatReal()
+		      };
+
+		      Quaternion_Update(q);
+
+		      printf("rpy: %7.2f %7.2f %7.2f\r\n",
+		             BNO080_Roll, BNO080_Pitch, BNO080_Yaw);
+		    }
+		  }
+
+
+	  }
 
 
   }

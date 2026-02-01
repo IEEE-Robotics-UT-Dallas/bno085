@@ -17,6 +17,19 @@ C_SRCS += \
 ../Core/Src/system_stm32f4xx.c \
 ../Core/Src/usart.c 
 
+O_SRCS += \
+../Core/Src/dma.o \
+../Core/Src/gpio.o \
+../Core/Src/i2c.o \
+../Core/Src/main.o \
+../Core/Src/spi.o \
+../Core/Src/stm32f4xx_hal_msp.o \
+../Core/Src/stm32f4xx_it.o \
+../Core/Src/syscalls.o \
+../Core/Src/sysmem.o \
+../Core/Src/system_stm32f4xx.o \
+../Core/Src/usart.o 
+
 OBJS += \
 ./Core/Src/dma.o \
 ./Core/Src/gpio.o \
