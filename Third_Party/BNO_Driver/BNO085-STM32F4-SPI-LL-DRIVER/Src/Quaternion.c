@@ -33,9 +33,9 @@ void Quaternion_Update(float* q)
 	
 	
 	if(BNO080_Pitch>=0)
-		BNO080_Pitch = 180.f - BNO080_Pitch;
+		BNO080_Pitch = (2* PI).f - BNO080_Pitch;
 	else
-		BNO080_Pitch = -(BNO080_Pitch + 180.f);
+		BNO080_Pitch = -(BNO080_Pitch + (2*PI).f);
 }
 
 // Fast inverse square-root
