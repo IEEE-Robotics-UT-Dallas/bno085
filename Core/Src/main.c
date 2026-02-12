@@ -138,7 +138,7 @@ int main(void)
 	  // NOTE: in your driver, success returns 0 (it prints "...ok" then returns 0)
 	  if (ret == 0) {
 	      // 50,000 us = 50 ms = 20 Hz. Fits in uint16_t.
-	      BNO080_enableRotationVector(50000);
+	      BNO080_enableGameRotationVector(50000);
 	      printf("RotationVector enabled\r\n");
 	  } else {
 	      printf("BNO init FAILED\r\n");
@@ -160,6 +160,7 @@ int main(void)
 		      };
 
 		      Quaternion_Update(q);
+
 
 		      printf("rpy: %7.2f %7.2f %7.2f\r\n",
 		             BNO080_Roll, BNO080_Pitch, BNO080_Yaw);

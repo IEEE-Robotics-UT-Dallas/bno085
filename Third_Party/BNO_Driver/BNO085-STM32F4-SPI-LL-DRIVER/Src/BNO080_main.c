@@ -103,6 +103,8 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   BNO080_Initialization();
+  //To enable the Game Rotation vector (no magnetometer), uncomment line 107, and comment line 108
+  //BNO080_enableGameRotationVector(2500); //enable rotation vector at 400Hz
   BNO080_enableRotationVector(2500); //enable rotation vector at 400Hz
 
   /* USER CODE END 2 */
@@ -123,6 +125,7 @@ int main(void)
 		  quatRadianAccuracy = BNO080_getQuatRadianAccuracy();
 
 		  Quaternion_Update(&q[0]);
+
 
 		  printf("%.2f\t%.2f\t%.2f\n", BNO080_Roll, BNO080_Pitch, BNO080_Yaw); //print roll, pitch, yaw in degree
 	  }

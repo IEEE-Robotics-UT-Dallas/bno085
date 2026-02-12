@@ -1,7 +1,7 @@
 #include "Quaternion.h"
 
 #define _180_DIV_PI 57.295779515f // = 180 / PI
-
+#define PI 3.1415926535f
 float BNO080_Roll;
 float BNO080_Pitch;
 float BNO080_Yaw;
@@ -21,13 +21,13 @@ void Quaternion_Update(float* q)
 	BNO080_Pitch = atan2f(2.0f * (q2*q3 + q1*q4), q1*q1 + q2*q2 - q3*q3 - q4*q4);
 	BNO080_Roll  = -asinf(2.0f * (q2*q4 - q1*q3));
 	BNO080_Yaw   = atan2f(2.0f * (q1*q2 + q3*q4), q1*q1 - q2*q2 - q3*q3 + q4*q4);
-
+/*
 	BNO080_Pitch *= _180_DIV_PI;
 	BNO080_Roll  *= _180_DIV_PI;
 	BNO080_Yaw   *= _180_DIV_PI;
-	
+	*/
 	if(BNO080_Yaw>=0)
-		BNO080_Yaw = 360.f - BNO080_Yaw;
+		BNO080_Yaw = (2 * PI).f - BNO080_Yaw;
 	else	
 		BNO080_Yaw = -BNO080_Yaw;
 	
