@@ -162,8 +162,8 @@ int main(void)
 		      Quaternion_Update(q);
 
 
-		      printf("rpy: %7.2f %7.2f %7.2f\r\n",
-		             BNO080_Roll, BNO080_Pitch, BNO080_Yaw);
+		      printf("yaw: %7.5f\r\n",
+		              BNO080_Yaw);
 		    }
 		  }
 

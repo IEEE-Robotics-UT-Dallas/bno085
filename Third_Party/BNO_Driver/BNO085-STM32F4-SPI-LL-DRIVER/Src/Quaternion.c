@@ -1,7 +1,7 @@
 #include "Quaternion.h"
 
 #define _180_DIV_PI 57.295779515f // = 180 / PI
-#define PI 3.1415926535f
+#define TWO_PI 6.2831853071f
 float BNO080_Roll;
 float BNO080_Pitch;
 float BNO080_Yaw;
@@ -27,15 +27,15 @@ void Quaternion_Update(float* q)
 	BNO080_Yaw   *= _180_DIV_PI;
 	*/
 	if(BNO080_Yaw>=0)
-		BNO080_Yaw = (2 * PI).f - BNO080_Yaw;
+		BNO080_Yaw = TWO_PI - BNO080_Yaw;
 	else	
 		BNO080_Yaw = -BNO080_Yaw;
 	
 	
 	if(BNO080_Pitch>=0)
-		BNO080_Pitch = (2* PI).f - BNO080_Pitch;
+		BNO080_Pitch = TWO_PI - BNO080_Pitch;
 	else
-		BNO080_Pitch = -(BNO080_Pitch + (2*PI).f);
+		BNO080_Pitch = -(BNO080_Pitch + TWO_PI);
 }
 
 // Fast inverse square-root
